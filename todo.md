@@ -17,3 +17,4 @@
 - [x] Vitest unit tests (19 tests passing: crypto, admin, auth)
 - [x] Security: Encrypt credentials before storing in DB (AES-256-GCM)
 - [x] Security: Protect admin page with authentication (adminProcedure)
+- [x] Bug fix: Campo userEmail rejeita formato Zendesk (email/token) - validação z.string().email() muito restritiva

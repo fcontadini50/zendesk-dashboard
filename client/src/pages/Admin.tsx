@@ -274,20 +274,23 @@ export default function Admin() {
             {/* User Email */}
             <div className="space-y-2">
               <Label htmlFor="userEmail" className="text-sm font-medium">
-                Email do Usuário Zendesk <span className="text-destructive">*</span>
+                Usuário Zendesk (email/token) <span className="text-destructive">*</span>
               </Label>
               <Input
                 id="userEmail"
-                type="email"
+                type="text"
                 value={userEmail}
                 onChange={(e) => setUserEmail(e.target.value)}
                 onCopy={preventCopy}
                 onCut={preventCopy}
                 onContextMenu={preventContextMenu}
-                placeholder="usuario@empresa.com"
+                placeholder="usuario@empresa.com/token"
                 className="bg-background"
                 autoComplete="off"
               />
+              <p className="text-xs text-muted-foreground">
+                Formato: email/token (ex: usuario@empresa.com/token)
+              </p>
             </div>
 
             {/* API Token */}

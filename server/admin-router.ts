@@ -57,7 +57,7 @@ export const adminRouter = router({
             (val) => val.includes(".zendesk.com") || val.includes("."),
             "Domínio deve ser válido (ex: empresa.zendesk.com)"
           ),
-        userEmail: z.string().email("Email deve ser válido"),
+        userEmail: z.string().min(1, "Usuário é obrigatório"),
         apiToken: z.string().min(1, "Token é obrigatório"),
         label: z.string().optional(),
       })
@@ -98,7 +98,7 @@ export const adminRouter = router({
     .input(
       z.object({
         domain: z.string().min(1),
-        userEmail: z.string().email(),
+        userEmail: z.string().min(1),
         apiToken: z.string().min(1),
       })
     )
