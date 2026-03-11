@@ -1,0 +1,19 @@
+# Project TODO
+
+- [x] Database schema (zendesk_config table for encrypted credentials, ura_status_history)
+- [x] Backend: Zendesk config admin router (save/get encrypted credentials)
+- [x] Backend: Zendesk tickets router (fetch tickets using dynamic config from DB)
+- [x] Backend: URA status router (webhook + get status + history)
+- [x] Backend: Biometry router (webhook + get status)
+- [x] Backend: Zendesk users router (CRUD via Zendesk API)
+- [x] Backend: Notification for urgent tickets
+- [x] Frontend: Home page with priority/status indicators, ticket list, filters
+- [x] Frontend: Agent virtual status bar with fade-out and collapsible history
+- [x] Frontend: Biometry indicator in header
+- [x] Frontend: Admin page with protected form for Zendesk credentials
+- [x] Frontend: Button on Home page linking to Admin page
+- [x] Frontend: Manage Users page with full form and validation
+- [x] Frontend: Responsive design (mobile-first)
+- [x] Vitest unit tests (19 tests passing: crypto, admin, auth)
+- [x] Security: Encrypt credentials before storing in DB (AES-256-GCM)
+- [x] Security: Protect admin page with authentication (adminProcedure)
