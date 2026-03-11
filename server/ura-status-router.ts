@@ -2,7 +2,8 @@ import { publicProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 
 // In-memory state for URA (Virtual Agent) status
-let currentUraStatus: {
+// Exported so REST webhook endpoints can also update it
+export let currentUraStatus: {
   message: string;
   timestamp: number;
 } = {
@@ -10,8 +11,24 @@ let currentUraStatus: {
   timestamp: 0,
 };
 
+export function updateUraStatus(message: string) {
+  currentUraStatus = {
+    message,
+    timestamp: Date.now(),
+  };
+  console.log(`[URA Status] Updated: ${message}`);
+}
+
+export function clearUraStatus() {
+  currentUraStatus = {
+    message: "",
+    timestamp: 0,
+  };
+  console.log("[URA Status] Cleared");
+}
+
 export const uraStatusRouter = router({
-  // Webhook to receive URA status updates
+  // Webhook to receive URA status updates (via tRPC)
   updateStatus: publicProcedure
     .input(
       z.object({
@@ -19,13 +36,7 @@ export const uraStatusRouter = router({
       })
     )
     .mutation(async ({ input }) => {
-      currentUraStatus = {
-        message: input.status,
-        timestamp: Date.now(),
-      };
-
-      console.log(`[URA Status] Updated: ${input.status}`);
-
+      updateUraStatus(input.status);
       return {
         success: true,
         message: "Status atualizado com sucesso",
@@ -43,13 +54,7 @@ export const uraStatusRouter = router({
 
   // Clear the status
   clearStatus: publicProcedure.mutation(async () => {
-    currentUraStatus = {
-      message: "",
-      timestamp: 0,
-    };
-
-    console.log("[URA Status] Cleared");
-
+    clearUraStatus();
     return {
       success: true,
       message: "Status limpo com sucesso",

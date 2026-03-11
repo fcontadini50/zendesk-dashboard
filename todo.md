@@ -18,3 +18,6 @@
 - [x] Security: Encrypt credentials before storing in DB (AES-256-GCM)
 - [x] Security: Protect admin page with authentication (adminProcedure)
 - [x] Bug fix: Campo userEmail rejeita formato Zendesk (email/token) - validação z.string().email() muito restritiva
+- [x] Implementar webhooks REST da URA conforme projeto original (endpoints /api/ura-status, /api/biometry-status)
+- [x] Garantir que endpoints de webhook sejam acessíveis externamente (não via tRPC, mas REST direto) com CORS habilitado
+- [x] Verificar exibição em tempo real do status da URA e biometria no dashboard
