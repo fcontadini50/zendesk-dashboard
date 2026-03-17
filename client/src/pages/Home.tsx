@@ -17,6 +17,7 @@ import {
 import { trpc } from "@/lib/trpc";
 import { useLocation } from "wouter";
 import { useAuth } from "@/_core/hooks/useAuth";
+import VoiceCommandButton from "@/components/VoiceCommandButton";
 
 const MOVIGOO_LOGO =
   "https://d2xsxph8kpxj0f.cloudfront.net/310419663029189119/mBpT5TPBMiBQnBVLpBVGEL/movigoo-logo_9ce3c215.png";
@@ -267,6 +268,11 @@ export default function Home() {
                   </div>
                 </div>
               </Card>
+            </div>
+
+            {/* Voice Command */}
+            <div className="flex-shrink-0">
+              <VoiceCommandButton />
             </div>
 
             {/* Action Buttons */}

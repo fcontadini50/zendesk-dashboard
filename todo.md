@@ -21,3 +21,9 @@
 - [x] Implementar webhooks REST da URA conforme projeto original (endpoints /api/ura-status, /api/biometry-status)
 - [x] Garantir que endpoints de webhook sejam acessíveis externamente (não via tRPC, mas REST direto) com CORS habilitado
 - [x] Verificar exibição em tempo real do status da URA e biometria no dashboard
+- [x] Implementar sistema de comandos de voz com Web Speech API
+- [x] Criar componente VoiceCommand com botão de microfone no header
+- [x] Mapear intenções de voz para navegação (ex: "editar usuário" → /manage-users, "administração" → /admin)
+- [x] Feedback visual durante escuta e reconhecimento de voz
+- [x] Suporte a português brasileiro (pt-BR) no reconhecimento de fala
+- [x] Fallback para navegadores que não suportam Web Speech API
