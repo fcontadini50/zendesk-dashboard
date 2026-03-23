@@ -1,0 +1,14 @@
+{
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "deploy": {
+    "startCommand": "pnpm start",
+    "healthcheckPath": "/",
+    "healthcheckTimeout": 300,
+    "restartPolicy": {
+      "maxRetries": 10
+    },
+    "numReplicas": 1
+  }
+}
